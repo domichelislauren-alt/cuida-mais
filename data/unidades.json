@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ubs-centro",
+    "nome": "UBS Centro",
+    "bairro": "Centro"
+  },
+  {
+    "id": "ubs-norte",
+    "nome": "UBS Região Norte",
+    "bairro": "Região Norte"
+  },
+  {
+    "id": "ubs-rural",
+    "nome": "Unidade de Atendimento Rural",
+    "bairro": "Zona Rural"
+  }
+]

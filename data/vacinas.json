@@ -1,0 +1,22 @@
+[
+  {
+    "nome": "Influenza",
+    "status": "realizada",
+    "detalhe": "Dose anual registrada no exemplo."
+  },
+  {
+    "nome": "COVID-19",
+    "status": "pendente",
+    "detalhe": "Reforço demonstrativo pendente."
+  },
+  {
+    "nome": "Febre amarela",
+    "status": "realizada",
+    "detalhe": "Registro demonstrativo concluído."
+  },
+  {
+    "nome": "Hepatite B",
+    "status": "prevista",
+    "detalhe": "Próxima etapa simulada conforme calendário."
+  }
+]

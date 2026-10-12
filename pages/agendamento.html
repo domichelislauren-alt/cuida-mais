@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CUIDA+ - Inclusão Digital e Acesso à Saúde">
+  <title>Agendamento | CUIDA+</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+  <a class="brand" href="index.html" aria-label="CUIDA+ - Página inicial">
+    <span class="brand-mark" aria-hidden="true">+</span>
+    <span>CUIDA+</span>
+  </a>
+  <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <nav class="main-nav" aria-label="Navegação principal">
+    <a href="index.html">Início</a>
+    <a href="agendamento.html">Agendamento</a>
+    <a href="telemedicina.html">Telemedicina</a>
+    <a href="vacinacao.html">Vacinação</a>
+    <a href="meus-atendimentos.html">Meus atendimentos</a>
+    <a href="sobre.html">Sobre</a>
+  </nav>
+</header>
+  <main id="conteudo">
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Fluxo 1</div>
+    <h1>Agendamento</h1>
+    <p class="muted">Escolha o serviço e informe o bairro. Os campos aceitam digitação e também oferecem sugestões para facilitar a busca.</p>
+    <div class="steps" aria-label="Etapas do agendamento">
+      <span class="step active" id="s1">1. Atendimento</span>
+      <span class="step" id="s2">2. Local e horário</span>
+      <span class="step" id="s3">3. Dados</span>
+      <span class="step" id="s4">4. Confirmar</span>
+    </div>
+
+    <section class="form-card" id="step1">
+      <h2>1. Escolha o tipo de atendimento</h2>
+      <div class="form-group">
+        <label for="tipo">Tipo de atendimento</label>
+        <select id="tipo">
+          <option value="">Selecione</option>
+          <option>Consulta clínica</option>
+          <option>Enfermagem</option>
+          <option>Vacinação</option>
+          <option>Orientação de saúde</option>
+          <option>Urgência / UPA 24h</option>
+        </select>
+        <div class="error hidden" id="erroTipo">Selecione um tipo de atendimento.</div>
+      </div>
+      <button class="btn btn-primary" id="next1">Continuar</button>
+    </section>
+
+    <section class="form-card hidden" id="step2">
+      <h2>2. Escolha local, data e horário</h2>
+      <div class="grid-3">
+        <div class="form-group">
+          <label for="estado">Estado</label>
+          <input id="estado" class="readonly-input" value="Rio de Janeiro (RJ)" readonly>
+        </div>
+        <div class="form-group combo-wrap">
+          <label for="bairro">Bairro</label>
+          <input id="bairro" list="bairrosLista" placeholder="Digite ou selecione um bairro" autocomplete="off">
+          <datalist id="bairrosLista"></datalist>
+        </div>
+        <div class="form-group combo-wrap">
+          <label for="unidade">Unidade</label>
+          <input id="unidade" list="unidadesLista" placeholder="Digite ou selecione uma unidade" autocomplete="off">
+          <datalist id="unidadesLista"></datalist>
+        </div>
+      </div>
+      <div class="helper-row">
+        <span class="helper-chip">Você pode digitar livremente</span>
+        <span class="helper-chip" id="qtdUnidades">Sugestões atualizadas conforme bairro e serviço</span>
+      </div>
+      <div id="unitDetail" class="unit-detail hidden"></div>
+      <div id="upaAviso" class="service-alert hidden"><strong>UPA 24h:</strong> este serviço é voltado a urgência e emergência, com classificação de risco e atendimento contínuo. Não funciona por agendamento de horário.</div>
+      <div id="agendaCampos">
+        <div class="grid-2" style="margin-top:1rem">
+          <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" id="data" min="2026-10-12">
+          </div>
+          <div class="form-group">
+            <label for="horario">Horário</label>
+            <select id="horario"><option value="">Selecione</option></select>
+          </div>
+        </div>
+      </div>
+      <div class="notice" id="profissionalBox"><strong>Profissional / equipe prevista:</strong> selecione o tipo de atendimento para visualizar.</div>
+      <div class="error hidden" id="erroAgenda">Preencha bairro e unidade. Para serviços agendáveis, informe também data e horário.</div>
+      <div class="actions">
+        <button class="btn btn-secondary" id="back2">Voltar</button>
+        <button class="btn btn-primary" id="next2">Continuar</button>
+      </div>
+    </section>
+
+    <section class="form-card hidden" id="step3">
+      <h2>3. Informe seus dados</h2>
+      <div class="grid-3">
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input id="nome" autocomplete="off" placeholder="Ex.: João da Silva">
+        </div>
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input id="cpf" autocomplete="off" placeholder="000.000.000-00" maxlength="14">
+        </div>
+        <div class="form-group">
+          <label for="moradia">Bairro/local onde mora</label>
+          <input id="moradia" autocomplete="off" placeholder="Ex.: Penha, Rio de Janeiro">
+        </div>
+      </div>
+      <div class="error hidden" id="erroDados">Preencha nome, CPF e bairro/local onde mora.</div>
+      <div class="actions">
+        <button class="btn btn-secondary" id="back3">Voltar</button>
+        <button class="btn btn-primary" id="next3">Revisar</button>
+      </div>
+    </section>
+
+    <section class="form-card hidden" id="step4">
+      <h2>4. Revise antes de confirmar</h2>
+      <div class="summary" id="resumo"></div>
+      <div class="actions">
+        <button class="btn btn-secondary" id="back4">Voltar</button>
+        <button class="btn btn-success" id="confirmar">Confirmar</button>
+      </div>
+    </section>
+
+    <section class="form-card hidden center" id="sucesso" tabindex="-1">
+      <div style="font-size:3rem" aria-hidden="true">✅</div>
+      <h2 id="tituloSucesso">Atendimento registrado</h2>
+      <div class="summary" id="comprovante"></div>
+      <div class="actions" style="justify-content:center">
+        <a class="btn btn-primary" href="meus-atendimentos.html">Ver meus atendimentos</a>
+        <a class="btn btn-secondary" href="agendamento.html">Novo atendimento</a>
+      </div>
+    </section>
+  </div>
+</section>
+</main>
+  <footer class="site-footer">
+  <p><strong>CUIDA+</strong> — Plataforma de apoio à navegação em serviços de saúde</p>
+</footer>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/agendamento.js"></script>
+</body>
+</html>
